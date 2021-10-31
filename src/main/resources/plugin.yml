@@ -1,0 +1,6 @@
+name: Bedwars
+version: '${project.version}'
+main: me.lachy.bedwars.Bedwars
+api-version: 1.17
+authors: [ lqchy_, daFear ]
+description: A Bedwars remake.
