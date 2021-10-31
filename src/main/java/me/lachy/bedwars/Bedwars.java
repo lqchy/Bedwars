@@ -20,6 +20,7 @@ public final class Bedwars extends JavaPlugin {
     public void onEnable() {
         instance = this;
         this.commandManager = new BukkitCommandManager(this);
+        this.commandManager.enableUnstableAPI("help");
 
         this.registerCommands();
         this.registerEvents();
