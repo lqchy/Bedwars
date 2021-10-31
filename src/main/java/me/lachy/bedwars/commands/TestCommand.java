@@ -3,11 +3,13 @@ package me.lachy.bedwars.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandHelp;
 import co.aikar.commands.annotation.CatchUnknown;
+import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.HelpCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+@CommandAlias("test")
 public class TestCommand extends BaseCommand {
 
     @Default
