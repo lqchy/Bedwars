@@ -3,6 +3,8 @@ package me.lachy.bedwars;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.BukkitCommandManager;
 import co.aikar.commands.annotation.CommandAlias;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.Getter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,12 +15,15 @@ import java.lang.reflect.InvocationTargetException;
 public final class Bedwars extends JavaPlugin {
 
     @Getter private static Bedwars instance;
+    @Getter private static Gson gson;
 
     private BukkitCommandManager commandManager;
 
     @Override
     public void onEnable() {
         instance = this;
+        gson = new GsonBuilder().setPrettyPrinting().create();
+
         this.commandManager = new BukkitCommandManager(this);
         this.commandManager.enableUnstableAPI("help");
 
