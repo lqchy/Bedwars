@@ -1,18 +1,18 @@
 package me.lachy.bedwars.map.models;
 
-import java.util.List;
+import java.util.Map;
 
 public class MapModel {
 
     private String worldName;
-    private List<IslandModel> islands;
+    private Map<String, IslandModel> islands;
 
-    public List<IslandModel> getIslands() {
+    public Map<String, IslandModel> getIslands() {
         return this.islands;
     }
 
-    public IslandModel getIsland(int index) {
-        return this.islands.get(index);
+    public IslandModel getIsland(String name) {
+        return this.islands.get(name);
     }
 
     public String getWorldName() {

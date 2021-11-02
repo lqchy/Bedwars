@@ -30,7 +30,7 @@ public class TestCommand extends BaseCommand {
     }
 
     @Subcommand("map")
-    public void map(Player player, String mapName) {
+    public void map(Player player, String mapName, String teamName) {
         File map = MapUtils.getMap(mapName);
         if (map == null) {
             return;
@@ -39,10 +39,10 @@ public class TestCommand extends BaseCommand {
         try {
             FileReader reader = new FileReader(map);
             MapModel model = Bedwars.getGson().fromJson(reader, MapModel.class);
-            LocationModel.BedLocationModel bedModel = model.getIsland(0).getBeds().get(0);
+            LocationModel.BedLocationModel bedModel = model.getIsland(teamName).getBeds().get(0);
             Location location = bedModel.toLocation(player.getWorld());
 
-            model.getIslands().get(0).getGenerators().forEach(generatorModel -> {
+            model.getIslands().get(teamName).getGenerators().forEach(generatorModel -> {
                 Location genLoc = generatorModel.toLocation(player.getWorld());
                 Material material = Material.valueOf(generatorModel.getMaterial());
                 ItemStack stack = new ItemStack(material);
